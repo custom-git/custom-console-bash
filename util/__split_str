@@ -1,0 +1,15 @@
+#!/bin/bash
+
+function __split_str() {
+	local str="${1}"
+	local delim="${2}"
+	str+="${delim}"
+
+	RESULT_ARR=()
+	while [[ -n "${str}" ]]; do
+		local suffix=${str#*$delim}
+		local prefix=${str%$delim$suffix}
+		RESULT_ARR+=("$prefix")
+		str=$suffix
+	done
+}
