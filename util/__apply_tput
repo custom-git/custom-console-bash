@@ -20,6 +20,8 @@ function __apply_tput() {
         ;;
         white) tput setaf 7
         ;;
+        reset) tput sgr0
+        ;;
         *) tput "${1}"
         ;;
     esac

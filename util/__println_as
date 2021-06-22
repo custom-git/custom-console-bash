@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#shellcheck disable=SC1091
+
+			#   $0       $1    $2      $3
+# Usage: __println_as "bold" "red" "Some text"
+function __println_as() {
+
+	source "${__CUSTOM_CONSOLE_UTIL}"/__apply_tput
+
+	while [[ $# -gt 1 ]]; do
+		__apply_tput "${1}"
+		shift
+	done
+
+	msg="${1}"
+	printf "%s\n" "${msg}"
+
+	__apply_tput reset
+}
