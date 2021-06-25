@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Usage: __url_decode url
+# Credit: https://unix.stackexchange.com/a/187256
+function __url_decode () {
+	local urlEncoded="${1//+/ }"
+	printf '%b' "${urlEncoded//%/\\x}"
+}
