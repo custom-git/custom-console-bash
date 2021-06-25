@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#shellcheck disable=SC1091
+
+source "$__CUSTOM_CONSOLE_UTIL"/__println_as
+
+# Usage: __print_info "information text"
+function __print_info() {
+
+	__println_as blue "[INFO] $*"
+}
