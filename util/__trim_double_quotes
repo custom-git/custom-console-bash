@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Usage: __trim_double_quotes "${str}"
+# Output: the string without preceeding and trailing double quotes
+# Example:
+# 	Input: "Input String"
+# 	Output: Input String
+function __trim_double_quotes() {
+	str="${1}"
+	str=${str#\"}	# remove prefix
+	str=${str%\"}	# remove suffix
+	echo "${str}"
+}

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#shellcheck disable=SC1091
+
+source "$__CUSTOM_CONSOLE_UTIL"/__trim_double_quotes
+
+# Usage: getrawstr "Input String"
+# Output: Input\ String
+function main() {
+	file="$(__trim_double_quotes "${1}")"
+	printf "%q" "$file"
+}
+
+main "$*"
