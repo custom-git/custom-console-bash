@@ -13,7 +13,7 @@ function __println_as() {
 		shift
 	done
 
-	msg="${1}"
+	local msg="${1}"
 	printf "%s\n" "${msg}"
 
 	__apply_tput reset
