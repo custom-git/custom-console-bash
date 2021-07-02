@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Usage: __unescape_double_quotes "${str}"
+# Output: string without escaped double quotes
+# Example:
+# 	Input: Input\" String
+# 	Output: Input" String
+function __unescape_double_quotes() {
+	local str="${1}"
+	str=${str//"\\\""/"\""}
+	echo "${str}"
+}
