@@ -1,15 +1,18 @@
 #!/bin/bash
 
+# Usage : __split_str "str" "substr"
+# str : input string
+# substr : delimiter substring
+# Output: RESULT_ARR
 function __split_str() {
 	local str="${1}"
 	local delim="${2}"
-	str+="${delim}"
+	local suffix=""
 
 	RESULT_ARR=()
-	while [[ -n "${str}" ]]; do
-		local suffix=${str#*$delim}
-		local prefix=${str%$delim$suffix}
-		RESULT_ARR+=("$prefix")
-		str=$suffix
+	while [[ "${str}" != "${suffix}" ]]; do
+		suffix=${str/*$delim/}			# remove prefix
+		str=${str%"$delim$suffix"}		# remove suffix
+		RESULT_ARR=("$suffix" "${RESULT_ARR[@]}")    # prepend to the result array
 	done
 }
