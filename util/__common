@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #shellcheck disable=SC2155
+#shellcheck disable=SC2034	#	SUCCESS appears unused. Verify use (or export if used externally)
 
 export BLACK="$(tput setaf 0)"
 export RED="$(tput setaf 1)"
@@ -14,3 +15,6 @@ export BOLD="$(tput bold)"
 export UNDERLINE="$(tput smul)"
 export REVERSE="$(tput rev)"
 export RESET="$(tput sgr0)"
+
+SUCCESS=0
+FAILURE=1
