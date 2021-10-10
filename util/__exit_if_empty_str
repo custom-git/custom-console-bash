@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#shellcheck disable=SC2086 	#	Double quote to prevent globbing and word splitting.
+
+# Usage: __exit_if_empty_str "some string" 0
+function __exit_if_empty_str() {
+	local str="${1}"
+	local statusCode=${2}
+	if [[ -z "${str}" ]]; then
+		exit ${statusCode}
+	fi
+}
