@@ -7,5 +7,5 @@ source "$__CUSTOM_CONSOLE_UTIL"/__println_as
 # Usage: __print_err "error message"
 function __print_err() {
 
-	__println_as red "[ERROR] $*"
+	__println_as red "$*"
 }
