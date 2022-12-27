@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#shellcheck disable=SC2155
+
+function __prioritize_down() {
+
+	local str="${1}"
+	local taskId="$(echo "$str" | grep -E "[0-9]+" -o | head -n 1)"
+  local currPriority="$(echo "$str" | grep -E "([A-Z])" -o | head -n 1)"
+
+  if [[ "${currPriority}" == "A" ]]; then
+    todo.sh pri "${taskId}" "B"
+  elif [[ "${currPriority}" == "B" ]]; then
+    todo.sh pri "${taskId}" "C"
+  elif [[ "${currPriority}" == "C" ]]; then
+    todo.sh depri "${taskId}"
+  fi
+}
