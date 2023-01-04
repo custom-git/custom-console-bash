@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#shellcheck disable=SC2155
+#shellcheck disable=SC1010 # Use semicolon or linefeed before 'do' (or quote to make it literal).
+
+function __mark_done() {
+
+	local str="${1}"
+	echo "$str"
+	local taskId="$(echo "$str" | grep -E "[0-9]+" -o | head -n 1)"
+
+  todo.sh do "${taskId}"
+}

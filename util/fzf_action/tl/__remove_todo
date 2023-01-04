@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#shellcheck disable=SC2155
+
+function __remove_todo() {
+
+	local str="${1}"
+	echo "$str"
+	local taskId="$(echo "$str" | grep -E "[0-9]+" -o | head -n 1)"
+
+  echo "y" | todo.sh rm "${taskId}"
+}

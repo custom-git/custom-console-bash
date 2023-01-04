@@ -9,15 +9,26 @@
 function main() {
 
   while true; do
-    local selectedStr="$(todo.sh lsprj | fzf --preview "todo.sh ls {}")"
+    local selectedStr="$(todo.sh lsprj | \
+                          fzf  --header "Select a project to view its tasks" \
+                              --preview "todo.sh ls {} | grep -v TODO" \
+                              --preview-window right:70%\
+                              --preview-window hidden \
+                              --preview-window nowrap \
+                              --bind "?:toggle-preview" \
+                              --bind "ctrl-w:toggle-preview-wrap")"
 		if [[ -z "${selectedStr}" ]]; then
 			break
 		fi
     todo.sh ls "${selectedStr}" |\
-      fzf --bind "ctrl-u:execute-silent(source $__CUSTOM_CONSOLE_UTIL/fzf_action/tl/__prioritize_up; __prioritize_up {})" \
-          --bind "ctrl-u:+reload(todo.sh ls ${selectedStr})" \
-          --bind "ctrl-d:execute-silent(source $__CUSTOM_CONSOLE_UTIL/fzf_action/tl/__prioritize_down; __prioritize_down {})" \
-          --bind "ctrl-d:+reload(todo.sh ls ${selectedStr})"
+      fzf --bind "ctrl-j:execute-silent(source $__CUSTOM_CONSOLE_UTIL/fzf_action/tl/__prioritize_up; __prioritize_up {})" \
+          --bind "ctrl-j:+reload(todo.sh ls ${selectedStr})" \
+          --bind "ctrl-k:execute-silent(source $__CUSTOM_CONSOLE_UTIL/fzf_action/tl/__prioritize_down; __prioritize_down {})" \
+          --bind "ctrl-k:+reload(todo.sh ls ${selectedStr})" \
+          --bind "ctrl-d:execute-silent(source $__CUSTOM_CONSOLE_UTIL/fzf_action/tl/__mark_done; __mark_done {})" \
+          --bind "ctrl-d:+reload(todo.sh ls ${selectedStr})" \
+          --bind "ctrl-r:execute-silent(source $__CUSTOM_CONSOLE_UTIL/fzf_action/tl/__remove_todo; __remove_todo {})" \
+          --bind "ctrl-r:+reload(todo.sh ls ${selectedStr})"
   done
 
 #	local GLOG_HEADER="$(__glog_header)"
