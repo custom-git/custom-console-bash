@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#shellcheck disable=SC2001
+#shellcheck disable=SC2155
+
+source "${__CUSTOM_CONSOLE_UTIL}"/__common
+
+function __projects_header() {
+
+	local msg="todo.sh | enter: traverse project task(s) | ?: toggle preview | esc: quit"
+	local colorMsgL1="${UNDERLINE}${MAGENTA}todo.sh${RESET} | \
+${BLUE}enter:${RESET} traverse project task(s) | \
+${BLUE}?:${RESET} toggle preview | \
+${BLUE}esc:${RESET} quit"
+
+	local edge="$(echo "${msg}" | sed -e 's/./-/g')"
+	local PROJECTS_HEADER="${edge}"'
+'"${colorMsgL1}"'
+'"${edge}"'
+ '
+
+	echo "${PROJECTS_HEADER}"
+}
