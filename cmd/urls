@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# shellcheck disable=SC2155 # Declare and assign separately to avoid masking return values.
+
+source "${__CUSTOM_CONSOLE_UTIL}"/urls/__fetch_urls
+source "${__CUSTOM_CONSOLE_UTIL}"/urls/fzf_header/__urls_header
+
+function main() {
+
+  local urlsHeader="$(__urls_header)"
+
+ __fetch_urls | awk '{split($0,a,":::"); print a[1]}' | \
+  fzf --header "${urlsHeader}" \
+      --preview "source $__CUSTOM_CONSOLE_UTIL/urls/fzf_preview/__url_preview; __url_preview {}" \
+      --preview-window hidden \
+      --preview-window nowrap \
+      --bind "enter:execute(source $__CUSTOM_CONSOLE_UTIL/urls/__open_url; __open_url {})" \
+      --bind "enter:+abort" \
+      --bind "?:toggle-preview" \
+      --bind "ctrl-w:toggle-preview-wrap"
+}
+
+main
