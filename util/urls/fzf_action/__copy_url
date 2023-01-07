@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#shellcheck disable=SC2155
+#shellcheck disable=SC1091
+
+source "$__CUSTOM_CONSOLE_UTIL"/__print_as
+
+function __copy_url() {
+
+  if ! command -v clipboard &> /dev/null; then
+      echo
+      __print_as "blue" "clipboard-cli"
+      printf "%s\n\n" " is required to copy the commit SHA to the clipboard."
+      printf "Please install from: "
+      __print_as "blue" "https://github.com/sindresorhus/clipboard-cli#install"
+      return
+  fi
+
+  local url="${1}"
+
+  printf "%s" "${url}" | clipboard
+
+  # the following statements will be printed in the preview window
+  echo
+  __print_as "blue" "bold" "This URL is copied to the clipboard."
+}

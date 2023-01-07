@@ -6,10 +6,9 @@ source "$__CUSTOM_CONSOLE_UTIL"/fzf_header/tl/__projects_header
 
 function main() {
 
+  local PROJECT_HEADER="$(__projects_header)"
+
   while true; do
-
-		local PROJECT_HEADER="$(__projects_header)"
-
     local selectedStr="$(todo.sh lsprj | sed -e s/.// | \
                           fzf --header "${PROJECT_HEADER}" \
                               --preview "source $__CUSTOM_CONSOLE_UTIL/fzf_preview/tl/__tasks_preview; __tasks_preview {}" \

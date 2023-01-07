@@ -4,9 +4,8 @@
 
 source "${__CUSTOM_CONSOLE_UTIL}"/urls/__fetch_urls
 
-function __open_url() {
+function __view_urls() {
 
 	local urlAlias="${1}"
-	local url="$(__fetch_urls | grep "${urlAlias}" | awk '{split($0,a,":::"); print a[2]}' | xargs -I {} echo {})"
-	open "${url}"
+	__fetch_urls | grep "${urlAlias}" | cut -d ' ' -f 2 | xargs -I {} echo {}
 }

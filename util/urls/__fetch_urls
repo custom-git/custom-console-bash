@@ -2,16 +2,11 @@
 
 function __fetch_urls() {
 
-  echo "proto-order-v1:::https://github.com/swiggy-private/protorepo/blob/master/order-platform/order-service/v1/order.proto"
-  echo "proto-order-v2:::https://github.com/swiggy-private/protorepo/blob/master/order-platform/order-service/v2/order.proto"
-  echo "repo-protorepo:::https://github.com/swiggy-private/protorepo"
-  echo "repo-checkout-service:::https://github.com/swiggy-private/checkout-services-apis"
-  echo "prs-checkout-service:::https://github.com/swiggy-private/checkout-services-apis/pulls"
-  echo "prs-order-platform:::https://github.com/swiggy-private/order-platform/pulls"
-  echo "prs-cart-platform:::https://github.com/swiggy-private/cart-platform/pulls"
-  echo "prs-dsl-platform:::https://github.com/swiggy-private/dsl-platform/pulls"
-  echo "eagleeye-food-bl-uoms:::https://eagleeye.swiggyops.de/d/iFVzqGO4z/food-bl-uoms?orgId=1"
-  echo "eagleeye-cart-platform:::https://eagleeye.swiggyops.de/d/4dFBIRsnz/cart-platform?orgId=1&from=now-3h&to=now"
-  echo "eagleeye-order-platform:::https://eagleeye.swiggyops.de/d/_DzVeUCnz/order-platform-flow-based?orgId=1&from=now-3h&to=now"
-  echo "eagleeye-instamart-business-metrics:::https://eagleeye.swiggyops.de/d/SZXl86eGz/instamart-business-metrics?from=now-3h&to=now"
+  local urlsFilePath="${__CUSTOM_CONSOLE_UTIL}/urls/urls.txt"
+
+  if [[ -f "${urlsFilePath}" ]]; then
+      while IFS= read -r url; do
+        echo "${url}"
+      done < "${urlsFilePath}"
+  fi
 }

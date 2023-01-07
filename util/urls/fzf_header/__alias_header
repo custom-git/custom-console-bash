@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#shellcheck disable=SC2001
+#shellcheck disable=SC2155
+
+source "${__CUSTOM_CONSOLE_UTIL}"/__common
+
+function __alias_header() {
+
+	local msg="urls | ctrl-o: open url(s) in web browser | enter: view url(s) | esc: exit"
+	local colorMsgL1="${UNDERLINE}${MAGENTA}urls${RESET} | \
+${BLUE}ctrl-o:${RESET} open url(s) in web browser | \
+${BLUE}enter:${RESET} view url(s) | \
+${BLUE}esc:${RESET} exit"
+
+	local edge="$(echo "${msg}" | sed -e 's/./-/g')"
+	local aliasHeader="${edge}"'
+'"${colorMsgL1}"'
+'"${edge}"'
+ '
+
+	echo "${aliasHeader}"
+}

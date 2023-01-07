@@ -7,17 +7,18 @@ source "${__CUSTOM_CONSOLE_UTIL}"/__common
 
 function __urls_header() {
 
-	local msg="urls | enter: open url in web browser | ?: toggle preview | esc: quit"
-	local colorMsgL1="${UNDERLINE}${MAGENTA}url${RESET} | \
-${BLUE}enter:${RESET} open url in web browser | \
-${BLUE}?:${RESET} toggle preview | \
-${BLUE}esc:${RESET} quit"
+  local urlAlias="${1}"
+  local msg="${urlAlias} | ctrl-o/double-click: open in web browser | ctrl-c: copy URL | esc: go back"
+  local colorMsgL1="${UNDERLINE}${MAGENTA}${urlAlias}${RESET} | \
+${BLUE}ctrl-o/double-click:${RESET} open in web browser | \
+${BLUE}ctrl-c:${RESET} copy URL | \
+${BLUE}esc:${RESET} go back"
 
-	local edge="$(echo "${msg}" | sed -e 's/./-/g')"
-	local urlsHeader="${edge}"'
+  local edge="$(echo "${msg}" | sed -e 's/./-/g')"
+  local urlsHeader="${edge}"'
 '"${colorMsgL1}"'
 '"${edge}"'
  '
 
-	echo "${urlsHeader}"
+  echo "${urlsHeader}"
 }

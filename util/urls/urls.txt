@@ -1,0 +1,14 @@
+darwin-mynexthire https://swiggy.app.mynexthire.io/employee/home/summary 
+eagleeye-cart-platform https://eagleeye.swiggyops.de/d/4dFBIRsnz/cart-platform?orgId=1&from=now-3h&to=now 
+eagleeye-food-bl-uoms https://eagleeye.swiggyops.de/d/iFVzqGO4z/food-bl-uoms?orgId=1 
+eagleeye-instamart-business-metrics https://eagleeye.swiggyops.de/d/SZXl86eGz/instamart-business-metrics?from=now-3h&to=now 
+eagleeye-order-platform https://eagleeye.swiggyops.de/d/_DzVeUCnz/order-platform-flow-based?orgId=1&from=now-3h&to=now 
+finology-recipe-goal-planner https://recipe.finology.in/app/goal-planner 
+proto-order https://github.com/swiggy-private/protorepo/blob/master/order-platform/order-service/v1/order.proto
+proto-order https://github.com/swiggy-private/protorepo/blob/master/order-platform/order-service/v2/order.proto
+prs-cart-platform https://github.com/swiggy-private/cart-platform/pulls 
+prs-checkout-service https://github.com/swiggy-private/checkout-services-apis/pulls 
+prs-dsl-platform https://github.com/swiggy-private/dsl-platform/pulls 
+prs-order-platform https://github.com/swiggy-private/order-platform/pulls 
+repo-checkout-service https://github.com/swiggy-private/checkout-services-apis 
+repo-protorepo https://github.com/swiggy-private/protorepo

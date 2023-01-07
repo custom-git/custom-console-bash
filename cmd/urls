@@ -3,21 +3,43 @@
 # shellcheck disable=SC2155 # Declare and assign separately to avoid masking return values.
 
 source "${__CUSTOM_CONSOLE_UTIL}"/urls/__fetch_urls
+source "${__CUSTOM_CONSOLE_UTIL}"/urls/__view_urls
+source "${__CUSTOM_CONSOLE_UTIL}"/urls/fzf_header/__alias_header
 source "${__CUSTOM_CONSOLE_UTIL}"/urls/fzf_header/__urls_header
+
+URLS_FILE_PATH="${__CUSTOM_CONSOLE_UTIL}/urls/urls.txt"
 
 function main() {
 
-  local urlsHeader="$(__urls_header)"
+  local aliasHeader="$(__alias_header)"
 
- __fetch_urls | awk '{split($0,a,":::"); print a[1]}' | \
-  fzf --header "${urlsHeader}" \
-      --preview "source $__CUSTOM_CONSOLE_UTIL/urls/fzf_preview/__url_preview; __url_preview {}" \
-      --preview-window hidden \
-      --preview-window nowrap \
-      --bind "enter:execute(source $__CUSTOM_CONSOLE_UTIL/urls/__open_url; __open_url {})" \
-      --bind "enter:+abort" \
-      --bind "?:toggle-preview" \
-      --bind "ctrl-w:toggle-preview-wrap"
+  while true; do
+    local urlAlias="$(__fetch_urls | cut -d ' ' -f 1 | uniq | \
+                          fzf --height=65%\
+                              --header "${aliasHeader}" \
+                              --bind "ctrl-o:execute(source $__CUSTOM_CONSOLE_UTIL/urls/__open_urls; __open_urls {})" \
+                              --bind "double-click:execute(source $__CUSTOM_CONSOLE_UTIL/urls/__open_urls; __open_urls {})")"
+    if [[ -z "${urlAlias}" ]]; then
+      break
+    fi
+    local urlsHeader="$(__urls_header "${urlAlias}")"
+    __view_urls "${urlAlias}" | \
+      fzf -m \
+          --height=65% \
+          --header "${urlsHeader}" \
+          --bind "ctrl-o:execute(open {})" \
+          --bind "ctrl-c:preview(source $__CUSTOM_CONSOLE_UTIL/urls/fzf_action/__copy_url; __copy_url {})" \
+          --bind "enter:ignore" \
+          --bind "double-click:execute(open {})"
+  done
+}
+
+function sort_urls_file() {
+
+    [ ! -f "${URLS_FILE_PATH}" ] && return
+    sort "${URLS_FILE_PATH}" > "${URLS_FILE_PATH}_sorted"
+    mv "${URLS_FILE_PATH}_sorted" "${URLS_FILE_PATH}"
 }
 
 main
+#sort_urls_file
