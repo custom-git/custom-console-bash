@@ -20,23 +20,19 @@ function main() {
                           fzf --height=65%\
                               --header "${aliasHeader}" \
                               --bind "ctrl-o:execute(source $__CUSTOM_CONSOLE_UTIL/urls/__open_urls; __open_urls {})" \
-                              --bind "double-click:execute(source $__CUSTOM_CONSOLE_UTIL/urls/__open_urls; __open_urls {})")"
+                              --bind "double-click:execute(source $__CUSTOM_CONSOLE_UTIL/urls/__open_urls; __open_urls {})" \
+                              --bind "ctrl-r:execute-silent(source $__CUSTOM_CONSOLE_UTIL/urls/__remove_urls; __remove_urls {})" \
+                              --bind "ctrl-r:+reload(source ${__CUSTOM_CONSOLE_UTIL}/urls/__fetch_urls; __fetch_urls | cut -d ' ' -f 1 | uniq)")"
     if [[ -z "${selectedStr}" ]]; then
       break
     fi
     if [[ "${selectedStr}" == "NEW" ]]; then
       add_new_url
+    elif [[ "${selectedStr}" == "----------------------" ]]; then
       continue
+    else
+      view_urls "${selectedStr}"
     fi
-    local urlsHeader="$(__urls_header "${selectedStr}")"
-    __view_urls "${selectedStr}" | \
-      fzf -m \
-          --height=65% \
-          --header "${urlsHeader}" \
-          --bind "ctrl-o:execute(open {})" \
-          --bind "ctrl-c:preview(source $__CUSTOM_CONSOLE_UTIL/urls/fzf_action/__copy_url; __copy_url {})" \
-          --bind "enter:ignore" \
-          --bind "double-click:execute(open {})"
   done
 }
 
@@ -76,5 +72,17 @@ function add_new_url() {
   sort_urls_file
 }
 
+function view_urls() {
+
+    local urlsHeader="$(__urls_header "${selectedStr}")"
+    __view_urls "${selectedStr}" | \
+      fzf -m \
+          --height=65% \
+          --header "${urlsHeader}" \
+          --bind "ctrl-o:execute(open {})" \
+          --bind "ctrl-c:preview(source $__CUSTOM_CONSOLE_UTIL/urls/fzf_action/__copy_url; __copy_url {})" \
+          --bind "enter:ignore" \
+          --bind "double-click:execute(open {})"
+}
+
 main
-#sort_urls_file

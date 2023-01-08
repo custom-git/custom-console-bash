@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# shellcheck disable=SC2155 # Declare and assign separately to avoid masking return values.
+
+source "${__CUSTOM_CONSOLE_UTIL}"/urls/__fetch_urls
+
+URLS_FILE_PATH="${__CUSTOM_CONSOLE_UTIL}/urls/urls.txt"
+
+function __remove_urls() {
+
+	local urlAlias="${1}"
+	__fetch_urls false | grep -v "${urlAlias}" "${URLS_FILE_PATH}" > temp && mv temp "${URLS_FILE_PATH}"
+}

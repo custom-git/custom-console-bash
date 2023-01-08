@@ -4,8 +4,11 @@ function __fetch_urls() {
 
   local urlsFilePath="${__CUSTOM_CONSOLE_UTIL}/urls/urls.txt"
 
-  echo "NEW"
-  echo "-----------"
+  local showActions="${1:-true}"
+  if [[ "${showActions}" == "true" ]]; then
+    echo "NEW"
+    echo "----------------------"
+  fi
   if [[ -f "${urlsFilePath}" ]]; then
       while IFS= read -r url; do
         echo "${url}"
