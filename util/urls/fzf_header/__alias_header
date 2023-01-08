@@ -7,9 +7,10 @@ source "${__CUSTOM_CONSOLE_UTIL}"/__common
 
 function __alias_header() {
 
-	local msg="urls | ctrl-o: open url(s) in web browser | enter: view url(s) | esc: exit"
+	local msg="urls | ctrl-o: open url(s) in web browser | ctrl-r: remove urls | enter: view url(s) | esc: exit"
 	local colorMsgL1="${UNDERLINE}${MAGENTA}urls${RESET} | \
 ${BLUE}ctrl-o:${RESET} open url(s) in web browser | \
+${BLUE}ctrl-r:${RESET} remove urls | \
 ${BLUE}enter:${RESET} view url(s) | \
 ${BLUE}esc:${RESET} exit"
 
