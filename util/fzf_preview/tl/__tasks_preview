@@ -8,5 +8,5 @@ function __tasks_preview() {
 	local project="${1}"
 	__println_as "cyan" "bold" "Project: ${project}"
 	echo
-	todo.sh ls "+${project}" | grep -v TODO | grep -v "\-\-"
+	todo.sh ls "+${project}" | grep -v TODO | grep -v "\-\-" | sort
 }

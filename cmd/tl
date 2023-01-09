@@ -20,15 +20,15 @@ function main() {
 			break
 		fi
 
-    todo.sh ls "+${selectedStr}" | grep -v TODO | grep -v "\-\-" | \
+    todo.sh ls "+${selectedStr}" | grep -v TODO | grep -v "\-\-" | sort | \
       fzf --bind "ctrl-j:execute-silent(source $__CUSTOM_CONSOLE_UTIL/fzf_action/tl/__prioritize_up; __prioritize_up {})" \
-          --bind "ctrl-j:+reload(todo.sh ls ${selectedStr})" \
+          --bind "ctrl-j:+reload(todo.sh ls +${selectedStr} | grep -v TODO | grep -v \"\-\-\" | sort)" \
           --bind "ctrl-k:execute-silent(source $__CUSTOM_CONSOLE_UTIL/fzf_action/tl/__prioritize_down; __prioritize_down {})" \
-          --bind "ctrl-k:+reload(todo.sh ls ${selectedStr})" \
+          --bind "ctrl-k:+reload(todo.sh ls +${selectedStr} | grep -v TODO | grep -v \"\-\-\" | sort)" \
           --bind "ctrl-d:execute-silent(source $__CUSTOM_CONSOLE_UTIL/fzf_action/tl/__mark_done; __mark_done {})" \
-          --bind "ctrl-d:+reload(todo.sh ls ${selectedStr})" \
+          --bind "ctrl-d:+reload(todo.sh ls +${selectedStr} | grep -v TODO | grep -v \"\-\-\" | sort)" \
           --bind "ctrl-r:execute-silent(source $__CUSTOM_CONSOLE_UTIL/fzf_action/tl/__remove_todo; __remove_todo {})" \
-          --bind "ctrl-r:+reload(todo.sh ls ${selectedStr})"
+          --bind "ctrl-r:+reload(todo.sh ls +${selectedStr} | grep -v TODO | grep -v \"\-\-\" | sort)"
   done
 }
 

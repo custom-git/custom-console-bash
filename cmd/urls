@@ -19,8 +19,8 @@ function main() {
     local selectedStr="$(__fetch_urls | cut -d ' ' -f 1 | uniq | \
                           fzf --height=65%\
                               --header "${aliasHeader}" \
-                              --bind "ctrl-o:execute(source $__CUSTOM_CONSOLE_UTIL/urls/__open_urls; __open_urls {})" \
-                              --bind "double-click:execute(source $__CUSTOM_CONSOLE_UTIL/urls/__open_urls; __open_urls {})" \
+                              --bind "ctrl-o:execute-silent(source $__CUSTOM_CONSOLE_UTIL/urls/__open_urls; __open_urls {})" \
+                              --bind "double-click:execute-silent(source $__CUSTOM_CONSOLE_UTIL/urls/__open_urls; __open_urls {})" \
                               --bind "ctrl-r:execute-silent(source $__CUSTOM_CONSOLE_UTIL/urls/__remove_urls; __remove_urls {})" \
                               --bind "ctrl-r:+reload(source ${__CUSTOM_CONSOLE_UTIL}/urls/__fetch_urls; __fetch_urls | cut -d ' ' -f 1 | uniq)")"
     if [[ -z "${selectedStr}" ]]; then

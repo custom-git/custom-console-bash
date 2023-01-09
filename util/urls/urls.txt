@@ -1,10 +1,13 @@
 backlog-uoms-food-migration https://swiggy.atlassian.net/jira/software/projects/UN/boards/647/backlog?assignee=5f0dc4759d9a12002946be6a
 darwin-mynexthire https://swiggy.app.mynexthire.io/employee/home/summary 
+deployment-cart-platform https://swiggy.atlassian.net/browse/CMR-58412
+deployment-order-platform https://swiggy.atlassian.net/browse/CMR-58421
 eagleeye-cart-platform https://eagleeye.swiggyops.de/d/4dFBIRsnz/cart-platform?orgId=1&from=now-3h&to=now 
 eagleeye-food-bl-uoms https://eagleeye.swiggyops.de/d/iFVzqGO4z/food-bl-uoms?orgId=1 
 eagleeye-instamart-business-metrics https://eagleeye.swiggyops.de/d/SZXl86eGz/instamart-business-metrics?from=now-3h&to=now 
 eagleeye-order-platform https://eagleeye.swiggyops.de/d/_DzVeUCnz/order-platform-flow-based?orgId=1&from=now-3h&to=now 
 finology-recipe-goal-planner https://recipe.finology.in/app/goal-planner 
+oncall-playbook-uoms https://docs.google.com/spreadsheets/d/1FU5YEoLHUCHVRAMglVncC9yceIw_Hmrxw-KS3QKF3KQ/edit#gid=1602857933&fvid=787800113
 pr-board-checkout https://docs.google.com/spreadsheets/d/1puhIYUZLNe67BzZo48X-9bWu9OYTiV-TF9I2ksLnu34/edit?pli=1#gid=0
 pr-board-food-migration https://docs.google.com/spreadsheets/d/1tGlErpZePS7RwiaDg3nIoPEhYQX7vJt3qeJ3nfeVYiA/edit?pli=1#gid=0
 proto-order https://github.com/swiggy-private/protorepo/blob/master/order-platform/order-service/v1/order.proto
@@ -15,3 +18,6 @@ prs-dsl-platform https://github.com/swiggy-private/dsl-platform/pulls
 prs-order-platform https://github.com/swiggy-private/order-platform/pulls 
 repo-checkout-service https://github.com/swiggy-private/checkout-services-apis 
 repo-protorepo https://github.com/swiggy-private/protorepo
+sheet-swiggy-operability-review-signup https://docs.google.com/spreadsheets/d/1f8DiJACTB1zWTC_VdlEdKNaym2OxYl2t2kY-IxaNL9Q/edit#gid=0
+shuttle-restart-rock-service https://swiggy.atlassian.net/wiki/spaces/ROCK/pages/2090696829/How+to+restart+application+deployed+on+RoCK.
+swiggy-work-log https://docs.google.com/spreadsheets/d/1J3fwXcdmocPojxgl_HENS37_z0SXmIcCCYVai5zj61A/edit#gid=0
