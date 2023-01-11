@@ -1,0 +1,7 @@
+#!/bin/bash
+
+function __read_urls_file() {
+
+  local urlsFilePath="${__CUSTOM_CONSOLE_UTIL}/urls/urls.txt"
+  [ -f "${urlsFilePath}" ] && cat "${urlsFilePath}"
+}

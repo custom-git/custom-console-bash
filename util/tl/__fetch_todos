@@ -1,0 +1,7 @@
+#!/bin/bash
+
+function __fetch_todos() {
+
+  local project="${1}"
+  todo.sh ls "+${project}" | grep -v TODO | grep -v "\-\-" | sort
+}

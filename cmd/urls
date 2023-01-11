@@ -2,7 +2,7 @@
 
 # shellcheck disable=SC2155 # Declare and assign separately to avoid masking return values.
 
-source "${__CUSTOM_CONSOLE_UTIL}"/urls/__fetch_urls
+source "${__CUSTOM_CONSOLE_UTIL}"/urls/__fetch_url_aliases
 source "${__CUSTOM_CONSOLE_UTIL}"/urls/__view_urls
 source "${__CUSTOM_CONSOLE_UTIL}"/urls/fzf_header/__alias_header
 source "${__CUSTOM_CONSOLE_UTIL}"/urls/fzf_header/__urls_header
@@ -16,13 +16,13 @@ function main() {
   local aliasHeader="$(__alias_header)"
 
   while true; do
-    local selectedStr="$(__fetch_urls | cut -d ' ' -f 1 | uniq | \
+    local selectedStr="$(__fetch_url_aliases | \
                           fzf --height=65%\
                               --header "${aliasHeader}" \
                               --bind "ctrl-o:execute-silent(source $__CUSTOM_CONSOLE_UTIL/urls/__open_urls; __open_urls {})" \
                               --bind "double-click:execute-silent(source $__CUSTOM_CONSOLE_UTIL/urls/__open_urls; __open_urls {})" \
                               --bind "ctrl-r:execute-silent(source $__CUSTOM_CONSOLE_UTIL/urls/__remove_urls; __remove_urls {})" \
-                              --bind "ctrl-r:+reload(source ${__CUSTOM_CONSOLE_UTIL}/urls/__fetch_urls; __fetch_urls | cut -d ' ' -f 1 | uniq)")"
+                              --bind "ctrl-r:+reload(source ${__CUSTOM_CONSOLE_UTIL}/urls/__fetch_url_aliases; __fetch_url_aliases)")"
     if [[ -z "${selectedStr}" ]]; then
       break
     fi

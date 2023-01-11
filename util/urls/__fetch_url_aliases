@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source "${__CUSTOM_CONSOLE_UTIL}"/urls/__read_urls_file
+
+function __fetch_url_aliases() {
+
+  echo "NEW"
+  echo "----------------------"
+  __read_urls_file | cut -d ' ' -f 1 | uniq
+}

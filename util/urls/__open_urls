@@ -2,10 +2,10 @@
 
 # shellcheck disable=SC2155 # Declare and assign separately to avoid masking return values.
 
-source "${__CUSTOM_CONSOLE_UTIL}"/urls/__fetch_urls
+source "${__CUSTOM_CONSOLE_UTIL}"/urls/__read_urls_file
 
 function __open_urls() {
 
 	local urlAlias="${1}"
-	__fetch_urls | grep "${urlAlias}" | cut -d ' ' -f 2 | xargs -I {} open {}
+	__read_urls_file | grep "${urlAlias}" | cut -d ' ' -f 2 | xargs -I {} open {}
 }

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#shellcheck disable=SC2001
+#shellcheck disable=SC2155
+
+source "${__CUSTOM_CONSOLE_UTIL}"/__common
+
+function __tasks_header() {
+
+  local project="${1}"
+	local msg="${project} | ctrl-d: mark as done | ctrl-r: remove | esc: go back"
+	local colorMsgL1="${UNDERLINE}${MAGENTA}${project}${RESET} | \
+${BLUE}ctrl-d:${RESET} mark as done | \
+${BLUE}ctrl-r:${RESET} remove | \
+${BLUE}esc:${RESET} go back"
+
+	local edge="$(echo "${msg}" | sed -e 's/./-/g')"
+	local tasksHeader="${edge}"'
+'"${colorMsgL1}"'
+'"${edge}"'
+ '
+
+	echo "${tasksHeader}"
+}

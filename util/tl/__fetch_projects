@@ -1,0 +1,8 @@
+#!/bin/bash
+
+function __fetch_projects() {
+
+  echo "NEW"
+  echo "----------------------"
+  todo.sh lsprj | sed -e s/.//
+}
