@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source "${__CUSTOM_CONSOLE_UTIL}"/__common
+source "${__CUSTOM_CONSOLE_UTIL}"/__println_as
+
+function __context_wise_tasks_preview() {
+
+	local context="${1}"
+	__println_as "cyan" "bold" "Context: ${context}"
+	echo
+	todo.sh ls "@${context}" | grep -v TODO | grep -v "\-\-" | sort
+}

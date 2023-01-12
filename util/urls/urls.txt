@@ -1,7 +1,7 @@
 backlog-uoms-food-migration https://swiggy.atlassian.net/jira/software/projects/UN/boards/647/backlog?assignee=5f0dc4759d9a12002946be6a
 closed-pr-food-order-id-length-check https://github.com/swiggy-private/checkout-services-apis/pull/1619
-cmr https://swiggy.atlassian.net/browse/CMR-58412
 cmr https://swiggy.atlassian.net/browse/CMR-58421
+cmr https://swiggy.atlassian.net/browse/CMR-59254
 custom-git-ideas https://unfuddle.com/stack/tips-tricks/git-compare-two-branches/#:~:text=How%20do%20I%20compare%20two,branch2%20.
 darwin-mynexthire https://swiggy.app.mynexthire.io/employee/home/summary 
 eagleeye-cart-platform https://eagleeye.swiggyops.de/d/4dFBIRsnz/cart-platform?orgId=1&from=now-3h&to=now 
@@ -13,12 +13,11 @@ food-order-id-length-feature-flag https://github.com/swiggy-private/checkout-ser
 food-order-id-length-feature-flag https://github.com/swiggy-private/checkout-services-apis/pull/1660
 latest-order-json-diff https://www.diffchecker.com/XYujSzPp/
 oncall-playbook-uoms https://docs.google.com/spreadsheets/d/1FU5YEoLHUCHVRAMglVncC9yceIw_Hmrxw-KS3QKF3KQ/edit#gid=1602857933&fvid=787800113
-open-pr-handle-functional-errors-in-update-cart https://github.com/swiggy-private/checkout-services-apis/pull/1675
 open-pr-is-address-selected-conditional-value https://github.com/swiggy-private/checkout-services-apis/pull/1556
-open-pr-remove-aws-credentials https://github.com/swiggy-private/order-platform/pull/185
+open-pr-order-v2-proto-converter https://github.com/swiggy-private/checkout-services-apis/pull/1387
+open-pr-reduce-order-json-delta https://github.com/swiggy-private/checkout-services-apis/pull/1665
 open-pr-save-ddb-cost-by-reducing-min-capacity https://github.com/swiggy-private/order-platform/pull/183
-open-pr-uat-food-order-id-length-check https://github.com/swiggy-private/checkout-services-apis/pull/1674
-open-pr-uat-handle-functional-errors-of-update-cart https://github.com/swiggy-private/checkout-services-apis/pull/1676
+open-pr-uat-reduce-order-json-delta https://github.com/swiggy-private/checkout-services-apis/pull/1666
 pr-board-checkout https://docs.google.com/spreadsheets/d/1puhIYUZLNe67BzZo48X-9bWu9OYTiV-TF9I2ksLnu34/edit?pli=1#gid=0
 pr-board-food-migration https://docs.google.com/spreadsheets/d/1tGlErpZePS7RwiaDg3nIoPEhYQX7vJt3qeJ3nfeVYiA/edit?pli=1#gid=0
 proto-order https://github.com/swiggy-private/protorepo/blob/master/order-platform/order-service/v1/order.proto
@@ -27,6 +26,7 @@ prs-cart-platform https://github.com/swiggy-private/cart-platform/pulls
 prs-checkout-service https://github.com/swiggy-private/checkout-services-apis/pulls 
 prs-dsl-platform https://github.com/swiggy-private/dsl-platform/pulls 
 prs-order-platform https://github.com/swiggy-private/order-platform/pulls/bhavidhingra
+rca-doc-payment-failure-at-place-order https://swiggy.atlassian.net/wiki/spaces/swiggyarch/pages/3768257786/WIP+Payment+failure+at+place+order+call
 repo-checkout-service https://github.com/swiggy-private/checkout-services-apis 
 repo-protorepo https://github.com/swiggy-private/protorepo
 sheet-swiggy-operability-review-signup https://docs.google.com/spreadsheets/d/1f8DiJACTB1zWTC_VdlEdKNaym2OxYl2t2kY-IxaNL9Q/edit#gid=0

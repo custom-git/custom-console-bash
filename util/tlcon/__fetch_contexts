@@ -1,0 +1,8 @@
+#!/bin/bash
+
+function __fetch_contexts() {
+
+  echo "NEW"
+  echo "----------------------"
+  todo.sh lsc | sed -e s/.//
+}

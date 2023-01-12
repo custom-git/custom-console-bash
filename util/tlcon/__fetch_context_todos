@@ -1,0 +1,7 @@
+#!/bin/bash
+
+function __fetch_context_todos() {
+
+  local context="${1}"
+  todo.sh ls "@${context}" | grep -v TODO | grep -v "\-\-" | sort
+}

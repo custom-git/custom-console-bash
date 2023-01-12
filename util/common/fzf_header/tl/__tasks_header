@@ -7,9 +7,9 @@ source "${__CUSTOM_CONSOLE_UTIL}"/__common
 
 function __tasks_header() {
 
-  local project="${1}"
-	local msg="${project} | ctrl-d: mark as done | ctrl-r: remove | esc: go back"
-	local colorMsgL1="${UNDERLINE}${MAGENTA}${project}${RESET} | \
+  local title="${1}"
+	local msg="${title} | ctrl-d: mark as done | ctrl-r: remove | esc: go back"
+	local colorMsgL1="${UNDERLINE}${MAGENTA}${title}${RESET} | \
 ${BLUE}ctrl-d:${RESET} mark as done | \
 ${BLUE}ctrl-r:${RESET} remove | \
 ${BLUE}esc:${RESET} go back"

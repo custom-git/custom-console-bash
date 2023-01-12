@@ -1,0 +1,65 @@
+#!/bin/bash
+
+#shellcheck disable=SC2155
+
+source "${__CUSTOM_CONSOLE_UTIL}"/tlcon/__fetch_contexts
+source "${__CUSTOM_CONSOLE_UTIL}"/tlcon/__fetch_context_todos
+source "${__CUSTOM_CONSOLE_UTIL}"/tlcon/fzf_header/__contexts_header
+source "${__CUSTOM_CONSOLE_UTIL}"/common/fzf_header/tl/__tasks_header
+source "${__CUSTOM_CONSOLE_UTIL}"/common/fzf_header/tl/__new_todo_header
+
+function main() {
+
+  local contextsHeader="$(__contexts_header)"
+
+  while true; do
+    local selectedStr="$(__fetch_contexts | \
+                      fzf --height=65% \
+                          --header "${contextsHeader}" \
+                          --preview "source $__CUSTOM_CONSOLE_UTIL/tlcon/fzf_preview/__context_wise_tasks_preview; __context_wise_tasks_preview {}" \
+                          --preview-window hidden \
+                          --preview-window nowrap \
+                          --bind "?:toggle-preview" \
+                          --bind "ctrl-w:toggle-preview-wrap")"
+		if [[ -z "${selectedStr}" ]]; then
+			break
+		fi
+    if [[ "${selectedStr}" == "NEW" ]]; then
+      add_new_todo
+    elif [[ "${selectedStr}" == "----------------------" ]]; then
+      continue
+    else
+      view_tasks "${selectedStr}"
+    fi
+  done
+}
+
+function add_new_todo() {
+
+  local newTodoHeader="$(__new_todo_header)"
+  local newTodo="$(echo "" | grep "x" |\
+                    fzf --height 1% \
+                        --info=hidden \
+                        --bind 'enter:print-query' \
+                        --header "${newTodoHeader}")"
+  [ -n "${newTodo}" ] && todo.sh add "${newTodo}"
+}
+
+function view_tasks() {
+
+  local context="${1}"
+  local tasksHeader="$(__tasks_header "${context}")"
+  __fetch_context_todos "${context}" | \
+    fzf --height=65% \
+        --header "${tasksHeader}" \
+        --bind "ctrl-j:execute-silent(source $__CUSTOM_CONSOLE_UTIL/common/fzf_action/tl/__prioritize_up; __prioritize_up {})" \
+        --bind "ctrl-j:+reload(source ${__CUSTOM_CONSOLE_UTIL}/tlcon/__fetch_context_todos; __fetch_context_todos ${context})" \
+        --bind "ctrl-k:execute-silent(source $__CUSTOM_CONSOLE_UTIL/common/fzf_action/tl/__prioritize_down; __prioritize_down {})" \
+        --bind "ctrl-k:+reload(source ${__CUSTOM_CONSOLE_UTIL}/tlcon/__fetch_context_todos; __fetch_context_todos ${context})" \
+        --bind "ctrl-d:execute-silent(source $__CUSTOM_CONSOLE_UTIL/common/fzf_action/tl/__mark_done; __mark_done {})" \
+        --bind "ctrl-d:+reload(source ${__CUSTOM_CONSOLE_UTIL}/tlcon/__fetch_context_todos; __fetch_context_todos ${context})" \
+        --bind "ctrl-r:execute-silent(source $__CUSTOM_CONSOLE_UTIL/common/fzf_action/tl/__remove_todo; __remove_todo {})" \
+        --bind "ctrl-r:+reload(source ${__CUSTOM_CONSOLE_UTIL}/tlcon/__fetch_context_todos; __fetch_context_todos ${context})"
+}
+
+main
