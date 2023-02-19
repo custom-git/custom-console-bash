@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd ~/MyDocuments/MyZettelkasten/
+git add .
+git commit -m "backup the notes"
+git push
