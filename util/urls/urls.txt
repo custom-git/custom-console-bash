@@ -17,11 +17,13 @@ oncall-playbook-uoms https://docs.google.com/spreadsheets/d/1FU5YEoLHUCHVRAMglVn
 open-pr-date-string-fix https://github.com/swiggy-private/checkout-services-apis/pull/1775
 open-pr-mock-generator https://github.com/swiggy-private/checkout-services-apis/pull/1869
 open-pr-non-null-check-on-tip-amount https://github.com/swiggy-private/checkout-services-apis/pull/1796
+open-pr-ods-sync-condition https://github.com/swiggy-private/checkout-services-apis/pull/1902
 open-pr-populate-rendering-fields-in-ore https://github.com/swiggy-private/checkout-services-apis/pull/1712
 open-pr-reduce-order-json-delta https://github.com/swiggy-private/checkout-services-apis/pull/1665
 open-pr-save-ddb-cost-by-reducing-min-capacity https://github.com/swiggy-private/order-platform/pull/183
 open-pr-uat-date-string-fix https://github.com/swiggy-private/checkout-services-apis/pull/1779
 open-pr-uat-non-null-check-on-tip-amount https://github.com/swiggy-private/checkout-services-apis/pull/1797
+open-pr-uat-ods-sync-condition https://github.com/swiggy-private/checkout-services-apis/pull/1903
 open-pr-uat-populate-rendering-details https://github.com/swiggy-private/checkout-services-apis/pull/1713
 open-pr-uat-reduce-order-json-delta https://github.com/swiggy-private/checkout-services-apis/pull/1666
 open-pr-uat-save-session-create-order https://github.com/swiggy-private/checkout-services-apis/pull/1782

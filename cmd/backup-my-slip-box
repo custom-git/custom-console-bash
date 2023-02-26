@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd ~/MyDocuments/MySlipBox/
+git add .
+git commit -m "backup the slip box"
+git push
